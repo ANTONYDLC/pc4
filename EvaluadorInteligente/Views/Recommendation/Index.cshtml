@@ -1,15 +1,18 @@
 @{
-    ViewData["Title"] = "Recomendador de Productos";
+    ViewData["Title"] = "Recomendaciones";
 }
-<h2>Recomendación de Productos</h2>
+
+<h2>Recomendaciones para el usuario @ViewBag.UserId</h2>
+
 <form method="post">
-    <input type="text" name="userId" required placeholder="Ingrese el ID del Usuario" />
-    <button type="submit">Recomendar</button>
+    <label for="userId">Ingrese ID de usuario:</label>
+    <input type="text" name="userId" id="userId" required />
+    <button type="submit">Obtener recomendaciones</button>
 </form>
+
 @if (ViewBag.Recommendations != null)
 {
-    <hr />
-    <p><strong>Usuario:</strong> @ViewBag.UserId</p>
+    <h3>Productos recomendados:</h3>
     <ul>
         @foreach (var item in ViewBag.Recommendations)
         {
