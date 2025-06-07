@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "Recomendador de Productos";
+}
+<h2>Recomendación de Productos</h2>
+<form method="post">
+    <input type="text" name="userId" required placeholder="Ingrese el ID del Usuario" />
+    <button type="submit">Recomendar</button>
+</form>
+@if (ViewBag.Recommendations != null)
+{
+    <hr />
+    <p><strong>Usuario:</strong> @ViewBag.UserId</p>
+    <ul>
+        @foreach (var item in ViewBag.Recommendations)
+        {
+            <li>@item</li>
+        }
+    </ul>
+}
